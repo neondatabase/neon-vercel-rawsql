@@ -1,0 +1,13 @@
+{
+  "name": "neon-vercel-rawsql",
+  "version": "0.1.0",
+  "author": "George MacKerron",
+  "license": "ISC",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.2.3",
+    "vercel": "^28.14.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}
