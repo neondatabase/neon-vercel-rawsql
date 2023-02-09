@@ -5,9 +5,9 @@ export const config = {
   regions: ['fra1'],  // fra1 = Frankfurt: pick the Vercel region nearest your Neon DB
 };
 
-export default async (req: Request) => {
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
+export default async (req: Request) => {
   const longitude = parseFloat(req.headers.get('x-vercel-ip-longitude') ?? '-122.47');
   const latitude = parseFloat(req.headers.get('x-vercel-ip-latitude') ?? '37.81');
   const { rows: sites } = await pool.query(`
