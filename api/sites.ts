@@ -1,4 +1,4 @@
-import { Pool } from '@jawj/test-serverless';
+import { Pool } from '@neondatabase/serverless';
 
 export const config = {
   runtime: 'edge',

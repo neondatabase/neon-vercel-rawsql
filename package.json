@@ -4,7 +4,7 @@
   "author": "George MacKerron",
   "license": "ISC",
   "dependencies": {
-    "@jawj/test-serverless": "^0.2.3"
+    "@neondatabase/serverless": "^0.2.6"
   },
   "devDependencies": {
     "typescript": "^4.9.4",
