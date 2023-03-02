@@ -1,11 +1,11 @@
-import { Pool } from '@neondatabase/serverless';
+import { Pool } from '@jawj/test-serverless';
 
 export const config = {
   runtime: 'edge',
   regions: ['fra1'],  // fra1 = Frankfurt: pick the Vercel region nearest your Neon DB
 };
 
-export default async (req: Request) => {
+export default async (req: Request, ctx: any) => {
   const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
   const longitude = parseFloat(req.headers.get('x-vercel-ip-longitude') ?? '-122.47');
@@ -20,6 +20,7 @@ export default async (req: Request) => {
     LIMIT 10`, 
     [longitude, latitude]
   );
+  ctx.waitUntil(pool.end());
 
   return new Response(JSON.stringify({ longitude, latitude, sites }, null, 2));
 }
