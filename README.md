@@ -35,4 +35,4 @@ npx vercel env pull .env.local  # now bring it down into ./.env.local for local 
 npx vercel deploy
 ```
 
-* Now visit the deployed API
+* Now visit the deployed function at the URL given
