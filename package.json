@@ -4,10 +4,10 @@
   "author": "George MacKerron",
   "license": "ISC",
   "dependencies": {
-    "@neondatabase/serverless": "^0.3.0"
+    "@neondatabase/serverless": "^0.4.1"
   },
   "devDependencies": {
     "typescript": "^5.0.4",
-    "vercel": "^28.14.1"
+    "vercel": "^28.19.0"
   }
 }
