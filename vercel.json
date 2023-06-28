@@ -1,5 +1,6 @@
 {
-  "redirects": [
+  "trailingSlash": false,
+  "rewrites": [
     {
       "source": "/",
       "destination": "/api/sites"

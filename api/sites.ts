@@ -7,9 +7,10 @@ export const config = {
 
 export default async (req: Request, ctx: any) => {
   const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-
+  
   const longitude = parseFloat(req.headers.get('x-vercel-ip-longitude') ?? '-122.47');
   const latitude = parseFloat(req.headers.get('x-vercel-ip-latitude') ?? '37.81');
+
   const { rows: sites } = await pool.query(`
     SELECT 
       id_no, name_en, category,
@@ -20,6 +21,7 @@ export default async (req: Request, ctx: any) => {
     LIMIT 10`, 
     [longitude, latitude]
   );
+
   ctx.waitUntil(pool.end());
 
   return new Response(JSON.stringify({ longitude, latitude, sites }, null, 2));
