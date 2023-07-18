@@ -1,10 +1,5 @@
 import { Pool } from '@neondatabase/serverless';
 
-export const config = {
-  runtime: 'edge',
-  regions: ['fra1'],  // fra1 = Frankfurt: pick the Vercel region nearest your Neon DB
-};
-
 export default async (req: Request, ctx: any) => {
   const pool = new Pool({ connectionString: process.env.DATABASE_URL });
   
@@ -26,3 +21,8 @@ export default async (req: Request, ctx: any) => {
 
   return new Response(JSON.stringify({ longitude, latitude, sites }, null, 2));
 }
+
+export const config = {
+  runtime: 'edge',
+  regions: ['fra1'],  // fra1 = Frankfurt: pick the Vercel region nearest your Neon DB
+};
